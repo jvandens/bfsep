@@ -40,3 +40,4 @@ vignettes/*.pdf
 
 # reference documents
 /ref/*
+.Rproj.user
