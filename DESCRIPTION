@@ -1,12 +1,20 @@
 Package: bfsep
-Title: What the Package Does (One Line, Title Case)
+Title: USGS Non-Linear Baseflow Separation Model
 Version: 0.0.0.9000
 Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"),
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
-License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
-    license
+    c(person("Jaak", "Van den Sype", , "jaak.vandensype@hdrinc.com", role = c("cre")),
+    person("Christopher", "Konrad", , "cpkonrad@usgs.gov", role = "aut"))
+Description: R workspace with functions comprising a non-linear baseflow separation model, 
+    calibrated values of parameters and estimates of the baseflow component of daily streamflow 
+    at selected streamflow gages. Parameter values were determined by calibration of the model. 
+    Estimates of the baseflow component include daily values and the total baseflow as a fraction 
+    of streamflow for the analysis period.
+URL: https://github.com/jvandens/bfsep
+BugReports: https://github.com/jvandens/bfsep/issues
+License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.2
+Depends: 
+    R (>= 2.10)
+LazyData: true
