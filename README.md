@@ -26,13 +26,6 @@ Description of the parameters in this dataset can be viewed by calling
 the help `?bf_params_usgs`.
 
 ``` r
-library(magrittr)
-#library(flextable)
-
-# flextable(tail(bf_params_usgs)) %>% 
-#   colformat_num(big.mark=",", digits = 2, na_str = "N/A") %>% 
-#   autofit()
-
 knitr::kable(tail(bf_params_usgs), digits=2, format.args = list(scientific = FALSE))
 ```
 
@@ -95,6 +88,9 @@ flow to be in m3/day so add a conversion column as default returned is
 in cfs
 
 ``` r
+
+library(magrittr)
+
 # rename to friendly names and convert to m3/day
 rawDailyData <- renameNWISColumns(rawDailyData) %>% 
   dplyr::mutate(Flow_m3 = Flow / 35.3147 * 3600 * 24)
