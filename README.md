@@ -26,29 +26,24 @@ Description of the parameters in this dataset can be viewed by calling
 the help `?bf_params_usgs`.
 
 ``` r
-head(bf_params_usgs)
-#>    site_no       AREA        Lb        X1           Wb  POR        ALPHA
-#> 1 01010000 3432960000 42195.004 30268.421    3899.4916 0.15 6.991589e-03
-#> 2 01010070  437760000 22947.464 15020.629 1426149.7464 0.15 4.496731e-09
-#> 3 01010500 6860800000 30622.345 16697.526    4599.4746 0.15 8.809516e-03
-#> 4 01011000 3783680000 24340.048 13850.519    7682.9840 0.15 8.504163e-03
-#> 5 01012515   33280000  7922.068  4911.786     731.9395 0.15 3.732992e-02
-#> 6 01012520    5196800  1997.463  1163.064     226.5779 0.15 1.105229e-02
-#>        BETA           Ks        Kb        Kz     Qthresh          Rs
-#> 1 17.891344 1.202191e+04 1346.6735 0.2265222 653322.0051 -0.11685527
-#> 2 21.445829 1.702129e+13  721.4984 0.1865955 100322.8547 -0.13534568
-#> 3 17.847130 1.170324e+04 1082.3061 0.1736640 638640.6117 -0.13472433
-#> 4  9.946623 7.715101e+03 1227.5351 0.1289749 606830.9261 -0.07401526
-#> 5  6.879007 2.742763e+02  542.6453 0.2205462  16621.7842 -0.08372559
-#> 6  2.208195 9.004372e+02 1368.8208 0.1592777    171.2829 -0.22792486
-#>           Rb1          Rb2        Prec Frac4Rise      Error
-#> 1 -0.06032012 -0.010385333 28873.40697      0.05 0.11905442
-#> 2 -0.06300632 -0.011841823  3425.65845      0.05 0.09712791
-#> 3 -0.05029289 -0.008377966 66511.60578      0.05 0.13351219
-#> 4 -0.03335920 -0.007215571 58192.14953      0.05 0.08186208
-#> 5 -0.07727862 -0.008515741    36.67901      0.05 0.05996996
-#> 6 -0.08109302 -0.008349912    24.46899      0.05 0.17642699
+library(magrittr)
+#library(flextable)
+
+# flextable(tail(bf_params_usgs)) %>% 
+#   colformat_num(big.mark=",", digits = 2, na_str = "N/A") %>% 
+#   autofit()
+
+knitr::kable(tail(bf_params_usgs), digits=2, format.args = list(scientific = FALSE))
 ```
+
+|       | site_no  |      AREA |       Lb |       X1 |      Wb |  POR | ALPHA |  BETA |     Ks |      Kb |   Kz |   Qthresh |    Rs |   Rb1 |   Rb2 |    Prec | Frac4Rise | Error |
+|:------|:---------|----------:|---------:|---------:|--------:|-----:|------:|------:|-------:|--------:|-----:|----------:|------:|------:|------:|--------:|----------:|------:|
+| 13203 | 50148890 | 242176000 | 34713.66 | 26804.42 | 1100.43 | 0.15 |  0.00 | 17.53 |  84.51 | 1520.39 | 0.33 | 269158.88 | -0.35 | -0.08 | -0.01 | 3889.35 |      0.05 |  0.03 |
+| 13204 | 50252000 |   1254400 |  1814.29 |   182.12 |   53.99 | 0.15 |  0.00 |  1.00 |  44.46 |  226.69 | 0.03 |     48.94 | -0.35 | -0.03 |  0.00 |   24.47 |      0.05 |  0.04 |
+| 13205 | 50274000 |   5964800 |  6519.25 |  1406.67 |   43.04 | 0.15 |  0.01 |  2.40 | 641.71 | 1083.45 | 0.05 |     97.88 | -0.35 | -0.04 |  0.00 |   24.47 |      0.05 |  0.05 |
+| 13206 | 50295000 |    947200 |   197.17 |   104.47 | 1037.47 | 0.15 |  0.00 |  1.00 |   1.73 |    3.91 | 0.04 |     48.94 | -0.35 | -0.03 |  0.00 |   24.47 |      0.05 |  0.02 |
+| 13207 | 50333500 |  13824000 |  7495.11 |     2.46 |   69.39 | 0.15 |  0.00 |  1.10 | 530.88 | 1001.58 | 0.01 |    509.93 | -0.76 | -0.33 | -0.33 |   24.47 |      0.05 |  0.00 |
+| 13208 | 50345000 |   5376000 |  3156.42 |   137.89 |   62.39 | 0.15 |  0.00 |  1.06 | 103.10 |  653.17 | 0.00 |     48.94 | -0.20 | -0.03 |  0.00 |   24.47 |      0.05 |  0.08 |
 
 Sites are in rows with identification number in the first column, the 16
 parameters values, and the error for the calibration.
@@ -82,17 +77,6 @@ a single USGS site and calculate the baseflow separation
 ``` r
 
 library(dataRetrieval)
-library(magrittr)
-library(dplyr)
-#> 
-#> Attaching package: 'dplyr'
-#> The following objects are masked from 'package:stats':
-#> 
-#>     filter, lag
-#> The following objects are masked from 'package:base':
-#> 
-#>     intersect, setdiff, setequal, union
-library(ggplot2)
 
 # SAUK RIVER NEAR SAUK, WA
 siteNumber <- "12189500"
@@ -102,8 +86,8 @@ parameterCd <- "00060"  #discharge in cfs
 rawDailyData <- readNWISdv(
   siteNumber,
   parameterCd,
-  startDate = "1980-01-01",
-  endDate = "2023-01-01")
+  startDate = "2000-01-01",
+  endDate = "2000-12-31")
 ```
 
 Rename the columns to ‘friendly’ names and the `bfsep` model requires
@@ -113,19 +97,26 @@ in cfs
 ``` r
 # rename to friendly names and convert to m3/day
 rawDailyData <- renameNWISColumns(rawDailyData) %>% 
-  mutate(Flow_m3 = Flow / 35.3147 * 3600 * 24)
+  dplyr::mutate(Flow_m3 = Flow / 35.3147 * 3600 * 24)
 ```
 
 Plot the data as a quick check
 
 ``` r
+
+library(ggplot2)
+
 ggplot(rawDailyData, aes(x=Date, y=Flow_m3)) +
   geom_line()
 ```
 
 <img src="man/figures/README-unnamed-chunk-5-1.png" width="100%" />
 
-bfsep has helper functions to lookup the parameters for a site
+bfsep has helper functions to lookup the parameters for a site which are
+required for the model. The gage-specific parameters required are the
+basin characteristics (`basin_char()`), groundwater hydrology
+(`gw_hyd()`), and flow parameters (`flow()`). Each of these functions
+takes the USGS gage ID character string as it’s single argument.
 
 ``` r
 
@@ -146,8 +137,24 @@ output the associated error
 
 ``` r
 sep <- bf_sep(qin, dt, timestep, error_basis, basin_char, gw_hyd, flow)
-#> [1] 0.02393696
+#> [1] 0.01406752
 ```
+
+A basic plot of the results:
+
+``` r
+
+sep.plt <- sep %>% 
+  dplyr::select(Date:DirectRunoff.L3) %>% 
+  tidyr::pivot_longer(2:6, names_to = "var", values_to = "Flow_m3/day") 
+
+ggplot(sep.plt, aes(x = Date, y = `Flow_m3/day`, color = var)) +
+  geom_line(show.legend = FALSE) +
+  facet_wrap(~var, ncol=1)
+#> Warning: Removed 2 row(s) containing missing values (geom_path).
+```
+
+<img src="man/figures/README-unnamed-chunk-8-1.png" width="100%" />
 
 # References
 

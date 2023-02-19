@@ -29,7 +29,14 @@ library(bfsep)
 The model has been calibrated for `r nrow(bf_params_usgs)` selected gaging sites. Parameters are available for the USGS gage parameters dataset `bf_params_usgs` included with this package, as excerpted below.  Description of the parameters in this dataset can be viewed by calling the help `?bf_params_usgs`.
 
 ```{r}
-head(bf_params_usgs)
+library(magrittr)
+#library(flextable)
+
+# flextable(tail(bf_params_usgs)) %>% 
+#   colformat_num(big.mark=",", digits = 2, na_str = "N/A") %>% 
+#   autofit()
+
+knitr::kable(tail(bf_params_usgs), digits=2, format.args = list(scientific = FALSE))
 ```
 
 Sites are in rows with identification number in the first column, the 16 parameters values, and the error for the calibration. 
@@ -56,9 +63,6 @@ This is a basic example which shows how to download discharge data from a single
 ```{r example, warning=FALSE}
 
 library(dataRetrieval)
-library(magrittr)
-library(dplyr)
-library(ggplot2)
 
 # SAUK RIVER NEAR SAUK, WA
 siteNumber <- "12189500"
@@ -68,8 +72,8 @@ parameterCd <- "00060"  #discharge in cfs
 rawDailyData <- readNWISdv(
   siteNumber,
   parameterCd,
-  startDate = "1980-01-01",
-  endDate = "2023-01-01")
+  startDate = "2000-01-01",
+  endDate = "2000-12-31")
 ```
 
 Rename the columns to 'friendly' names and the `bfsep` model requires flow to be in m3/day so add a conversion column as default returned is in cfs
@@ -77,16 +81,20 @@ Rename the columns to 'friendly' names and the `bfsep` model requires flow to be
 ```{r}
 # rename to friendly names and convert to m3/day
 rawDailyData <- renameNWISColumns(rawDailyData) %>% 
-  mutate(Flow_m3 = Flow / 35.3147 * 3600 * 24)
+  dplyr::mutate(Flow_m3 = Flow / 35.3147 * 3600 * 24)
 ```
 
 Plot the data as a quick check
 ```{r}
+
+library(ggplot2)
+
 ggplot(rawDailyData, aes(x=Date, y=Flow_m3)) +
   geom_line()
 ```
 
-bfsep has helper functions to lookup the parameters for a site
+bfsep has helper functions to lookup the parameters for a site which are required for the model.  The gage-specific parameters required are the basin characteristics (`basin_char()`), groundwater hydrology (`gw_hyd()`), and flow parameters (`flow()`).  Each of these functions takes the USGS gage ID character string as it's single argument.
+
 ```{r}
 
 # model args
@@ -102,8 +110,23 @@ qin <- rawDailyData$Flow_m3 #VECTOR OF DAILY STREAMFLOW VALUES IN M3/day
 ```
 
 Run the baseflow separation model, save the results to a dataframe and output the associated error
+
 ```{r}
 sep <- bf_sep(qin, dt, timestep, error_basis, basin_char, gw_hyd, flow)
+```
+
+A basic plot of the results:
+
+```{r}
+
+sep.plt <- sep %>% 
+  dplyr::select(Date:DirectRunoff.L3) %>% 
+  tidyr::pivot_longer(2:6, names_to = "var", values_to = "Flow_m3/day") 
+
+ggplot(sep.plt, aes(x = Date, y = `Flow_m3/day`, color = var)) +
+  geom_line(show.legend = FALSE) +
+  facet_wrap(~var, ncol=1)
+
 ```
 
 # References
