@@ -1,5 +1,6 @@
 ---
 output: github_document
+bibliography: bibliography.bib
 ---
 
 <!-- README.md is generated from README.Rmd. Please edit that file and build with devtools::build_readme() -->
@@ -18,7 +19,7 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 <!-- badges: end -->
 
-The baseflow separation model `bfsep` is used for the estimation of the baseflow component of streamflow and is executed as a set of 12 functions. The model is run using the function `bf_sep()`, which requires six arguments.  All other functions are called by `bf_sep()`.  All required functions can be loaded in the library:
+The baseflow separation model `bfsep` is a wrapper library around the code and tools built by Christopher Konrad at USGS [@Shea2014] and is used for the estimation of the baseflow component of streamflow and is executed as a set of 12 functions. The model is run using the function `bf_sep()`, which requires six arguments.  All other functions are called by `bf_sep()`.  All required functions can be loaded in the library:
 
 ```{r}
 library(bfsep)

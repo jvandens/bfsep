@@ -6,11 +6,13 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-The baseflow separation model `bfsep` is used for the estimation of the
-baseflow component of streamflow and is executed as a set of 12
-functions. The model is run using the function `bf_sep()`, which
-requires six arguments. All other functions are called by `bf_sep()`.
-All required functions can be loaded in the library:
+The baseflow separation model `bfsep` is a wrapper library around the
+code and tools built by Christopher Konrad at USGS (Shea and Boldt 2014)
+and is used for the estimation of the baseflow component of streamflow
+and is executed as a set of 12 functions. The model is run using the
+function `bf_sep()`, which requires six arguments. All other functions
+are called by `bf_sep()`. All required functions can be loaded in the
+library:
 
 ``` r
 library(bfsep)
@@ -149,3 +151,16 @@ sep <- bf_sep(qin, dt, timestep, error_basis, basin_char, gw_hyd, flow)
 <!--
 You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date. `devtools::build_readme()` is handy for this. You could also use GitHub Actions to re-render `README.Rmd` every time you push. An example workflow can be found here: <https://github.com/r-lib/actions/tree/v1/examples>. 
 -->
+
+<div id="refs" class="references csl-bib-body hanging-indent">
+
+<div id="ref-Shea2014" class="csl-entry">
+
+Shea, Nicholas, and Annika Boldt. 2014. “<span
+class="nocase">Supra-personal cognitive control</span>.” *Trends in
+Cognitive Sciences* 18: 186–93.
+<https://doi.org/10.1016/j.tics.2014.01.006>.
+
+</div>
+
+</div>
