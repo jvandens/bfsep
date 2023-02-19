@@ -19,7 +19,7 @@ dir_q(lb, a, z, i)
 a numeric scalar
 }
 \description{
-\code{dir_q()} calculates the direct runoff
+\code{dir_q()} calculates direct runoff, Qd, given an impulse, I, and the saturated thickness of the surface reservoir, Zs
 }
 \examples{
 dir_q(1,2,3,4)

@@ -19,7 +19,7 @@ sur_q(lb, a, ks, z)
 a numeric scalar
 }
 \description{
-\code{sur_q()} calculates the discharge for the surface zone
+\code{sur_q()} calculates discharge from the surface reservoir, Qs, given Zs
 }
 \examples{
 sur_q(1,2,3,4)

@@ -23,7 +23,7 @@ recharge(lb, xb, ws, kz, zs, por)
 a numeric scalar
 }
 \description{
-\code{recharge()} calculates recharge based on saturated surfae depth and unsaturated base area
+\code{recharge()} calculates the portion of water stored in the surface reservoir that recharges the base reservoir, R
 }
 \examples{
 recharge(1,2,3,4,5,6)

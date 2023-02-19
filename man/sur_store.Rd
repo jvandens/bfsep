@@ -23,7 +23,7 @@ a numeric scalar
 \description{
 \code{sur_store()} calculates surface storage as the difference between the
 total surface zone volume and the unsaturated portion below Z (surface saturation thickness),
-both are triangular prisms
+both are triangular prisms.  Calculates Ss given Zs (inverse of sur_z)
 }
 \examples{
 sur_store(1,2,3,4,5)

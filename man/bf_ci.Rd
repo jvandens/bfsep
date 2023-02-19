@@ -15,5 +15,5 @@ bf_ci(bf_mod_out, return_type = "ci")
 a dataframe
 }
 \description{
-Calculate credible prediction intervals for streamflow
+Creates a table with credible intervals of baseflow prediction for a series of discrete baseflow values.
 }

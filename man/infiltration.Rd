@@ -23,7 +23,7 @@ infiltration(lb, ws, ks, a, zs, i)
 a numeric scalar
 }
 \description{
-\code{infiltration()} calculates infiltration based on unsaturated surface area
+\code{infiltration()} calculates portion of I that infiltrates into the surface reservoir, F
 }
 \examples{
 infiltration(1,2,3,4,5,6)

@@ -21,7 +21,7 @@ sur_z(lb, a, ws, por, ss)
 a numeric scalar
 }
 \description{
-Calculate saturated thickness in surface zone
+Calculates the saturated thickness of the surface reservoir, Zs, given the volume of water stored in the surface reservoir, Ss.
 }
 \examples{
 sur_z(1,2,3,4,5)
