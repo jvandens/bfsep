@@ -1,6 +1,6 @@
 #' Calculate prediction intervals
 #'
-#' Calculate credible prediction intervals for streamflow
+#' Creates a table with credible intervals of baseflow prediction for a series of discrete baseflow values.
 #'
 #' @param bf_mod_out bfmodout
 #' @param return_type type of return

@@ -1,5 +1,7 @@
 #' Calculate saturated thickness in surface zone
 #'
+#' Calculates the saturated thickness of the surface reservoir, Zs, given the volume of water stored in the surface reservoir, Ss.
+#'
 #' @param lb BASIN LENGTH
 #' @param a HYDRAULIC GRADIENT FOR SURFACE (CONSTANT)
 #' @param ws WIDTH OF SURACE ZONE (ONE SIDE OF CHANNEL)

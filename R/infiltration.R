@@ -1,6 +1,6 @@
 #' Calculate infiltration
 #'
-#' `infiltration()` calculates infiltration based on unsaturated surface area
+#' `infiltration()` calculates portion of I that infiltrates into the surface reservoir, F
 #'
 #' @param lb BASIN LENGTH
 #' @param ws WIDTH OF SURACE ZONE (ONE SIDE OF CHANNEL)

@@ -2,7 +2,8 @@
 #'
 #' `base_table()` returns a lookup table for base with saturated height,
 #' intersection, hydraulic gradient, storage and discharge
-#'
+#' Creates a table with Zb, hydraulic gradient (dZb/dx), Sb, and Qb for 1202 values of Xb from 0 to Lb
+
 #' @param lb BASIN LENGTH
 #' @param x1 LONGITUDINAL SCALING PARAMETER
 #' @param wb WIDTH OF BASE ZONE

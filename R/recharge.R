@@ -1,6 +1,6 @@
 #' Calculate recharge
 #'
-#' `recharge()` calculates recharge based on saturated surfae depth and unsaturated base area
+#' `recharge()` calculates the portion of water stored in the surface reservoir that recharges the base reservoir, R
 #'
 #' @param lb BASIN LENGTH
 #' @param xb LONGITUDINAL LOCATION OF BASE WATER LEVEL INTERSECTION WITH SURFACE

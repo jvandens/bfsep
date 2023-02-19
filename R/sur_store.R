@@ -2,7 +2,7 @@
 #'
 #' `sur_store()` calculates surface storage as the difference between the
 #' total surface zone volume and the unsaturated portion below Z (surface saturation thickness),
-#' both are triangular prisms
+#' both are triangular prisms.  Calculates Ss given Zs (inverse of sur_z)
 #'
 #' @param lb BASIN LENGTH
 #' @param a HYDRAULIC GRADIENT FOR SURFACE (CONSTANT)

@@ -1,6 +1,6 @@
 #' Direct runoff
 #'
-#' `dir_q()` calculates the direct runoff
+#' `dir_q()` calculates direct runoff, Qd, given an impulse, I, and the saturated thickness of the surface reservoir, Zs
 #'
 #' @param lb BASIN LENGTH
 #' @param a HYDRAULIC GRADIENT FOR SURFACE (CONSTANT)

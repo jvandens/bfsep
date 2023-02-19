@@ -20,8 +20,7 @@ The model has been calibrated for 13208 selected gaging sites.
 Parameters are available for the USGS gage parameters dataset
 `bf_params_usgs` included with this package, as excerpted below.
 Description of the parameters in this dataset can be viewed by calling
-the help
-/tmp/RtmpboFq8D/temp_libpath386a215f7aaa/bfsep/help/bf_params_usgs.
+the help `?bf_params_usgs`.
 
 ``` r
 head(bf_params_usgs)
@@ -59,7 +58,7 @@ parameters.
 columns 2:6 for basin_char, columns 7:11 for gw_hyd, and columns 12:17
 for flow.
 
-`bfsep` works best in conjuction with the USGS `dataRetrieval` package
+`bfsep` works best in conjunction with the USGS `dataRetrieval` package
 to fetch time-series data from specific gages.
 
 ## Installation

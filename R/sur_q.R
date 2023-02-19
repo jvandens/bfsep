@@ -1,6 +1,6 @@
 #' Discharge for surface zone
 #'
-#' `sur_q()` calculates the discharge for the surface zone
+#' `sur_q()` calculates discharge from the surface reservoir, Qs, given Zs
 #'
 #' @param lb BASIN LENGTH
 #' @param a HYDRAULIC GRADIENT FOR SURFACE (CONSTANT)
