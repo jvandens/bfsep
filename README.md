@@ -7,12 +7,13 @@
 <!-- badges: end -->
 
 The baseflow separation model `bfsep` is a wrapper library around the
-code and tools built by Christopher Konrad at USGS (Shea and Boldt 2014)
-and is used for the estimation of the baseflow component of streamflow
-and is executed as a set of 12 functions. The model is run using the
-function `bf_sep()`, which requires six arguments. All other functions
-are called by `bf_sep()`. All required functions can be loaded in the
-library:
+[code and
+tools](https://www.sciencebase.gov/catalog/item/5f90ef0282ce720ee2d29b7e)
+built by Christopher Konrad at USGS (Konrad 2020) and is used for the
+estimation of the baseflow component of streamflow and is executed as a
+set of 12 functions. The model is run using the function `bf_sep()`,
+which requires six arguments. All other functions are called by
+`bf_sep()`. All required functions can be loaded in the library:
 
 ``` r
 library(bfsep)
@@ -148,18 +149,20 @@ sep <- bf_sep(qin, dt, timestep, error_basis, basin_char, gw_hyd, flow)
 #> [1] 0.02393696
 ```
 
+# References
+
 <!--
 You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date. `devtools::build_readme()` is handy for this. You could also use GitHub Actions to re-render `README.Rmd` every time you push. An example workflow can be found here: <https://github.com/r-lib/actions/tree/v1/examples>. 
 -->
 
 <div id="refs" class="references csl-bib-body hanging-indent">
 
-<div id="ref-Shea2014" class="csl-entry">
+<div id="ref-Konrad2020" class="csl-entry">
 
-Shea, Nicholas, and Annika Boldt. 2014. “<span
-class="nocase">Supra-personal cognitive control</span>.” *Trends in
-Cognitive Sciences* 18: 186–93.
-<https://doi.org/10.1016/j.tics.2014.01.006>.
+Konrad, Christopher P. 2020. “<span class="nocase">Non-linear baseflow
+separation model with parameters and results (ver. 2.0, October
+2022)</span>.” *U.S. Geological Survey Data Release*.
+https://doi.org/<https://doi.org/10.5066/P9AIPHEP>.
 
 </div>
 

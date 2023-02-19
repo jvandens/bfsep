@@ -19,7 +19,7 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 <!-- badges: end -->
 
-The baseflow separation model `bfsep` is a wrapper library around the code and tools built by Christopher Konrad at USGS [@Shea2014] and is used for the estimation of the baseflow component of streamflow and is executed as a set of 12 functions. The model is run using the function `bf_sep()`, which requires six arguments.  All other functions are called by `bf_sep()`.  All required functions can be loaded in the library:
+The baseflow separation model `bfsep` is a wrapper library around the [code and tools](https://www.sciencebase.gov/catalog/item/5f90ef0282ce720ee2d29b7e) built by Christopher Konrad at USGS [@Konrad2020] and is used for the estimation of the baseflow component of streamflow and is executed as a set of 12 functions. The model is run using the function `bf_sep()`, which requires six arguments.  All other functions are called by `bf_sep()`.  All required functions can be loaded in the library:
 
 ```{r}
 library(bfsep)
@@ -106,6 +106,7 @@ Run the baseflow separation model, save the results to a dataframe and output th
 sep <- bf_sep(qin, dt, timestep, error_basis, basin_char, gw_hyd, flow)
 ```
 
+# References
 
 <!--
 You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date. `devtools::build_readme()` is handy for this. You could also use GitHub Actions to re-render `README.Rmd` every time you push. An example workflow can be found here: <https://github.com/r-lib/actions/tree/v1/examples>. 
