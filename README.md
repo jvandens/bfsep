@@ -46,9 +46,6 @@ elements each before using them as arguments to `bf_sep()`. Helper
 functions for each set exist to facilitate retrieving the gage-specific
 parameters.
 
-columns 2:6 for basin_char, columns 7:11 for gw_hyd, and columns 12:17
-for flow.
-
 `bfsep` works best in conjunction with the USGS `dataRetrieval` package
 to fetch time-series data from specific gages.
 
